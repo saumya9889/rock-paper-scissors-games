@@ -1,0 +1,239 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body{
+    background-color: rgba(140, 196, 97, 1);
+}
+
+.game-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    margin-top: 3rem;
+    border: 2px solid rgba(255, 255, 255, 1);
+    height: 160px;
+    width: 862px;
+    margin-left: 22rem;
+    border-radius: 10px;
+}
+
+h1{
+    font-size: 30px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 600;
+    line-height: 47px;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+}
+
+.scores {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5rem;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
+
+.score-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+    height: 128px;
+    font-size: 17px;
+    width: 150px;
+    border-radius: 10px;
+    color: rgba(101, 101, 101, 1);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    font-family: "Roboto", sans-serif;
+}
+
+.point {
+    font-size: 4.25rem;
+    font-weight: 600;
+    color: rgba(140, 196, 97, 1);
+}
+
+
+.choices {
+    
+    margin-top: 6rem;
+
+}
+.choice {
+    position: relative; 
+    /* width: 300px; 
+    height: 300px; */
+  }
+
+  .rock-paper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+  
+  .bg-img {
+    width: 125px;
+    height: 112px;
+    object-fit: cover; 
+  }
+  
+  .overlay-img {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72px;
+    height: 54px;
+    object-fit: contain;
+}
+
+
+   
+
+#scissors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+  #line1 {
+    position: absolute;
+    width: 10%;
+    left: 54%;
+    margin-top: -11%;
+    transform: translateX(-50%) rotate(-60deg);
+    z-index: -1;
+  }
+  
+  #line2 {
+    position: absolute;
+    position: absolute;
+    left: 46%;
+    transform: translateX(-50%) rotate(60deg);
+    z-index: -1;
+    margin-top: -11%;
+   width: 10%;
+
+  }
+  
+  #line3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg); 
+    z-index: -1;
+    width: 10%;
+    margin-top: -18%;
+
+  }
+
+  .paper::before {
+    content: ''; 
+    position: absolute;
+    top: -10px;
+    left: -10px; 
+    width: 120%; 
+    height: 120%; 
+    z-index: 1; 
+    pointer-events: none; 
+  }
+
+
+  .message{
+    display: flex;
+    right: 1rem;
+    justify-content: flex-end;
+    margin-right: 5rem;
+  }
+
+  .rules {
+    width: 303px;
+    height: 367px;
+    position: absolute;
+    background: rgba(0, 68, 41, 1); /* Green background */
+    color: rgba(255, 255, 255, 1); /* White text */
+    font-size: 13px;
+    border: 6px solid #ffffff; /* White border */
+    line-height: 28px;
+    border-radius: 10px;
+    font-weight: 400;
+    bottom: 6rem;
+    padding: 1rem; /* Add padding for spacing */
+    box-sizing: border-box; /* Include padding in width/height */
+  }
+  
+  .rules h3 {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 28px;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    margin-bottom: 1rem; /* Add space below the heading */
+  }
+  
+  .rules-list {
+    padding-left: 1.5rem; 
+    margin: 0; 
+    list-style: none; 
+  }
+  
+  .rules-list li::marker {
+    color: rgba(255, 214, 0, 1); 
+    content: '■'; 
+    font-size: 18px; 
+  }
+  
+  .rules-list li {
+    margin-bottom: 0.5rem; 
+  }
+  
+  .close-rules {
+    position: absolute;
+    top: -24px;
+    right: -18px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 20px;
+    cursor: pointer;
+    background: red;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ffffff;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rules-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4rem;
+    margin-top: 1rem;
+    
+  }
+  
+  .rules-btn button {
+    background-color: rgba(140, 196, 97, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 10px 22px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    font-size: 16px;
+  }
