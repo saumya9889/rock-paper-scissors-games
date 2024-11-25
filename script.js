@@ -1,80 +1,54 @@
-// // DOM Elements
-// const choices = document.querySelectorAll('[data-choice]');
-// const playerScoreElem = document.getElementById('player-score');
-// const computerScoreElem = document.getElementById('computer-score');
-// const messageElem = document.getElementById('message');
-// const rulesBtn = document.getElementById('rules-btn');
-// const closePopup = document.getElementById('close-popup');
-// const rulesPopup = document.getElementById('rules-popup');
+const rulesButton = document.getElementById('rulesButton');
+const rulesContainer = document.getElementById('rulesContainer');
+const closeButton = document.getElementById('closeButton');
 
-// // Variables
-// let playerScore = parseInt(localStorage.getItem('playerScore')) || 0;
-// let computerScore = parseInt(localStorage.getItem('computerScore')) || 0;
+rulesButton.addEventListener('click', () => {
+    if (rulesContainer.style.display === 'none' || rulesContainer.style.display === '') {
+        rulesContainer.style.display = 'block';
+    } else {
+        rulesContainer.style.display = 'none';
+    }
+});
 
-// // Update UI
-// function updateScores() {
-//   playerScoreElem.textContent = playerScore;
-//   computerScoreElem.textContent = computerScore;
-//   localStorage.setItem('playerScore', playerScore);
-//   localStorage.setItem('computerScore', computerScore);
-// }
+closeButton.addEventListener('click', () => {
+    rulesContainer.style.display = 'none';
+});
 
-// // Determine Winner
-// function getWinner(playerChoice, computerChoice) {
-//   if (playerChoice === computerChoice) return 'draw';
-//   if (
-//     (playerChoice === 'rock' && computerChoice === 'scissors') ||
-//     (playerChoice === 'scissors' && computerChoice === 'paper') ||
-//     (playerChoice === 'paper' && computerChoice === 'rock')
-//   ) {
-//     playerScore++;
-//     return 'player';
-//   }
-//   computerScore++;
-//   return 'computer';
-// }
 
-// // Random Choice for Computer
-// function getRandomChoice() {
-//   const choices = ['rock', 'paper', 'scissors'];
-//   return choices[Math.floor(Math.random() * choices.length)];
-// }
+    
+// Select all the choices
+// // Grab all the choices
+// const choices = document.querySelectorAll('.choice');
 
-// // Game Logic
+// // Iterate through each choice and add click event
 // choices.forEach(choice => {
-//   choice.addEventListener('click', () => {
-//     const playerChoice = choice.dataset.choice;
-//     const computerChoice = getRandomChoice();
-//     const winner = getWinner(playerChoice, computerChoice);
+//   choice.addEventListener('click', (e) => {
+//     const selectedChoice = e.target.closest('.choice'); // Get the closest choice div
+//     const choiceData = selectedChoice.getAttribute('data-choice'); // Get the choice name (rock, paper, or scissors)
 
-//     let message;
-//     if (winner === 'player') {
-//       message = '🎉 You win!';
-//       showCelebration();
-//     } else if (winner === 'computer') {
-//       message = '😢 You lose!';
-//     } else {
-//       message = "🤝 It's a draw!";
-//     }
-//     messageElem.textContent = `You chose ${playerChoice}, Computer chose ${computerChoice}. ${message}`;
-//     updateScores();
+//     // Hide all other choices except the selected one
+//     hideOtherChoices(choiceData);
+
+//     // Perform any other logic for selecting the choice (e.g., play the game)
+//     console.log(`You selected: ${choiceData}`);
 //   });
 // });
 
-// // Show Celebration
-// function showCelebration() {
-//   const confetti = document.createElement('div');
-//   confetti.classList.add('confetti');
-//   document.body.appendChild(confetti);
-//   setTimeout(() => confetti.remove(), 3000);
+// function hideOtherChoices(selectedChoice) {
+//   choices.forEach(choice => {
+//     const choiceData = choice.getAttribute('data-choice');
+//     if (choiceData !== selectedChoice) {
+//       choice.classList.add('hidden');  // Hide choices that are not selected
+//     }
+//   });
 // }
 
-// // Rules Modal
-// rulesBtn.addEventListener('click', () => rulesPopup.classList.remove('hidden'));
-// closePopup.addEventListener('click', () => rulesPopup.classList.add('hidden'));
-
-// // Initialize Scores
-// updateScores();
+// // Show all choices again (for example, after game completion or restart)
+// function showAllChoices() {
+//   choices.forEach(choice => {
+//     choice.classList.remove('hidden');  // Remove the hidden class to show choices
+//   });
+// }
 
 
 

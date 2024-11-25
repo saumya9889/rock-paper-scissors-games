@@ -28,14 +28,14 @@
 
     <div class="choices">
       <div class="rock-paper">
-      <div class="choice" data-choice="rock">
-        <img src="../assests/images/Group 2.png" class="bg-img" alt="Rock">
-        <img src="../assests/images/rock.png" class="overlay-img" alt="Rock">
-      </div>
-      <div class="choice paper" data-choice="paper">
-        <img src="../assests/images/Group 3.png" class="bg-img" alt="paper">
-        <img src="../assests/images/paper.png" class="overlay-img" alt="Paper">
-      </div>
+        <div class="choice" data-choice="rock">
+          <img src="../assests/images/Group 2.png" class="bg-img" alt="Rock">
+          <img src="../assests/images/rock.png" class="overlay-img" alt="Rock">
+        </div>
+        <div class="choice paper" data-choice="paper">
+          <img src="../assests/images/Group 3.png" class="bg-img" alt="paper">
+          <img src="../assests/images/paper.png" class="overlay-img" alt="Paper">
+        </div>
       </div>
       <div class="choice" data-choice="scissors" id="scissors">
         <img src="../assests/images/Group 1.png" class="bg-img group-ssr " alt="Scissors">
@@ -46,23 +46,36 @@
       <img src="../assests/images/Line 2.png" alt="Line 2" class="line" id="line2">
       <img src="../assests/images/Line 3.png" alt="Line 3" class="line" id="line3">
     </div>
+
+    <ul class="spread-circle-wrapper">
+      <li class="spread-circle"></li>
+      <li class="list1 animation"></li>
+      <li class="list2 animation"></li>
+      <li class="list3 animation"></li>
+    </ul>
   </div>
-    <div class="message">
-  <div class="rules">
+
+  <div class="computer-choice hidden">
+    <h3>Computer Picked:</h3>
+    <div class="choice" id="computerChoice"></div>
+</div> 
+  <div class="message">
+    <div class="rules" id="rulesContainer">
       <h3>Game Rules</h3>
       <ul class="rules-list">
         <li>Rock beats scissors, scissors beat paper, and paper beats rock..</li>
-        <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+        <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”
+        </li>
         <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
         <li>If both players lay down the same hand, each player lays down another hand.</li>
       </ul>
-      <button class="close-rules">X</button>
+      <button class="close-rules" id="closeButton">X</button>
     </div>
-    </div>
+  </div>
 
-    <div class="rules-btn">
-      <button id="rules-btn">RULES</button>
-    </div>
+  <div class="rules-btn">
+    <button id="rulesButton" class="rules-btn">RULES</button>
+  </div>
   </div>
   <script src="script.js"></script>
 </body>

@@ -5,7 +5,7 @@
     font-family: "Roboto", sans-serif;
 }
 
-body{
+body {
     background-color: rgba(140, 196, 97, 1);
 }
 
@@ -22,7 +22,7 @@ body{
     border-radius: 10px;
 }
 
-h1{
+h1 {
     font-size: 30px;
     color: rgba(255, 255, 255, 1);
     font-weight: 600;
@@ -64,30 +64,43 @@ h1{
 
 
 .choices {
-    
+
     margin-top: 6rem;
 
 }
-.choice {
-    position: relative; 
-    /* width: 300px; 
-    height: 300px; */
-  }
 
-  .rock-paper{
+.choice {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.choice:active {
+    transform: scale(0.95);
+}
+
+.choice.selected {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px rgb(31, 202, 145);
+    background-color: rgb(31, 202, 145);
+}
+
+
+.rock-paper {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6rem;
-  }
-  
-  .bg-img {
+}
+
+.bg-img {
     width: 125px;
     height: 112px;
-    object-fit: cover; 
-  }
-  
-  .overlay-img {
+    object-fit: cover;
+}
+
+.overlay-img {
     position: absolute;
     top: 46%;
     left: 50%;
@@ -98,7 +111,7 @@ h1{
 }
 
 
-   
+
 
 #scissors {
     display: flex;
@@ -107,98 +120,104 @@ h1{
     margin-top: 6rem;
 }
 
-  #line1 {
+#line1 {
     position: absolute;
     width: 10%;
     left: 54%;
     margin-top: -11%;
     transform: translateX(-50%) rotate(-60deg);
     z-index: -1;
-  }
-  
-  #line2 {
+}
+
+#line2 {
     position: absolute;
     position: absolute;
     left: 46%;
     transform: translateX(-50%) rotate(60deg);
     z-index: -1;
     margin-top: -11%;
-   width: 10%;
+    width: 10%;
 
-  }
-  
-  #line3 {
+}
+
+#line3 {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) rotate(180deg); 
+    transform: translateX(-50%) rotate(180deg);
     z-index: -1;
     width: 10%;
     margin-top: -18%;
 
-  }
+}
 
-  .paper::before {
-    content: ''; 
+.paper::before {
+    content: '';
     position: absolute;
     top: -10px;
-    left: -10px; 
-    width: 120%; 
-    height: 120%; 
-    z-index: 1; 
-    pointer-events: none; 
-  }
+    left: -10px;
+    width: 120%;
+    height: 120%;
+    z-index: 1;
+    pointer-events: none;
+}
 
 
-  .message{
+
+
+.message {
     display: flex;
     right: 1rem;
     justify-content: flex-end;
     margin-right: 5rem;
-  }
 
-  .rules {
+}
+
+.rules {
     width: 303px;
     height: 367px;
     position: absolute;
-    background: rgba(0, 68, 41, 1); /* Green background */
-    color: rgba(255, 255, 255, 1); /* White text */
+    background: rgba(0, 68, 41, 1);
+    color: rgba(255, 255, 255, 1);
     font-size: 13px;
-    border: 6px solid #ffffff; /* White border */
+    border: 6px solid #ffffff;
     line-height: 28px;
     border-radius: 10px;
     font-weight: 400;
     bottom: 6rem;
-    padding: 1rem; /* Add padding for spacing */
-    box-sizing: border-box; /* Include padding in width/height */
-  }
-  
-  .rules h3 {
+    padding: 1rem;
+    box-sizing: border-box;
+    display: none;
+
+}
+
+.rules h3 {
     font-size: 20px;
     font-weight: 900;
     line-height: 28px;
     letter-spacing: 2px;
     font-family: "Roboto", sans-serif;
     text-align: center;
-    margin-bottom: 1rem; /* Add space below the heading */
-  }
-  
-  .rules-list {
-    padding-left: 1.5rem; 
-    margin: 0; 
-    list-style: none; 
-  }
-  
-  .rules-list li::marker {
-    color: rgba(255, 214, 0, 1); 
-    content: '■'; 
-    font-size: 18px; 
-  }
-  
-  .rules-list li {
-    margin-bottom: 0.5rem; 
-  }
-  
-  .close-rules {
+    margin-bottom: 1rem;
+    /* Add space below the heading */
+}
+
+.rules-list {
+    padding-left: 1.5rem;
+    margin: 0;
+    list-style: none;
+}
+
+.rules-list li::marker {
+    color: rgba(255, 214, 0, 1);
+    content: '■';
+    font-size: 18px;
+}
+
+.rules-list li {
+    margin-bottom: 0.5rem;
+}
+
+.close-rules {
     position: absolute;
     top: -24px;
     right: -18px;
@@ -214,17 +233,17 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .rules-btn {
+}
+
+.rules-btn {
     display: flex;
     justify-content: flex-end;
     margin-right: 4rem;
     margin-top: 1rem;
-    
-  }
-  
-  .rules-btn button {
+
+}
+
+.rules-btn button {
     background-color: rgba(140, 196, 97, 1);
     color: rgba(255, 255, 255, 1);
     padding: 10px 22px;
@@ -236,4 +255,93 @@ h1{
     font-family: "Roboto", sans-serif;
     cursor: pointer;
     font-size: 16px;
-  }
+}
+
+/* spread circle animation start */
+
+
+.spread-circle-wrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Common styles for each circle */
+.spread-circle-wrapper .animation,
+.spread-circle {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 100%;
+    background: #ea4335;
+    z-index: 2;
+}
+
+li {
+    list-style: none;
+}
+
+.spread-circle-wrapper li:nth-child(3) {
+    animation: rounder3 2s linear 2s infinite alternate;
+    background: rgba(251, 97, 84, 0.4);
+}
+
+.spread-circle-wrapper li:nth-child(2) {
+    animation: rounder2 2s linear 2s infinite alternate;
+    background: rgba(245, 85, 71, 0.5);
+}
+
+.spread-circle-wrapper li:nth-child(1) {
+    animation: rounder1 2s linear 2s infinite alternate;
+    background: rgba(238, 76, 63, 0.6);
+}
+
+.animation {
+    z-index: 1;
+}
+
+/* Keyframes for border animation */
+@keyframes rounder1 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.39);
+    }
+}
+
+@keyframes rounder2 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.69);
+    }
+}
+
+@keyframes rounder3 {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.99);
+    }
+}
+
+/* spread circle animation ends */
+
+
+
+.hidden {
+    display: none;
+}
+
