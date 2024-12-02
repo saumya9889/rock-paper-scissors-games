@@ -76,6 +76,7 @@ h1 {
 
 }
 
+
 .choice:active {
     transform: scale(0.95);
 }
@@ -94,10 +95,12 @@ h1 {
     gap: 6rem;
 }
 
+
 .bg-img {
-    width: 125px;
-    height: 112px;
+    width: 205px;
+    height: 185px;
     object-fit: cover;
+    /* position: absolute;  */
 }
 
 .overlay-img {
@@ -105,11 +108,10 @@ h1 {
     top: 46%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 72px;
-    height: 54px;
+    width: 90px;
+    height: 80px;
     object-fit: contain;
 }
-
 
 
 
@@ -117,26 +119,29 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 6rem;
+    margin-top: 2rem;
 }
 
 #line1 {
     position: absolute;
-    width: 10%;
-    left: 54%;
-    margin-top: -11%;
-    transform: translateX(-50%) rotate(-60deg);
+    width: 158px;
+    height: 14px;
+    left: 55%;
+    margin-top: -13%;
+    transform: translateX(-41%) rotate(-60deg);
     z-index: -1;
+
 }
 
 #line2 {
+    
     position: absolute;
-    position: absolute;
-    left: 46%;
+    left: 44%;
     transform: translateX(-50%) rotate(60deg);
     z-index: -1;
-    margin-top: -11%;
-    width: 10%;
+    margin-top: -14%;
+    width: 158px;
+    height: 14px;
 
 }
 
@@ -146,7 +151,9 @@ h1 {
     transform: translateX(-50%) rotate(180deg);
     z-index: -1;
     width: 10%;
-    margin-top: -18%;
+    margin-top: -21%;
+    width: 150px;
+    height: 14px;
 
 }
 
@@ -160,6 +167,7 @@ h1 {
     z-index: 1;
     pointer-events: none;
 }
+
 
 
 
@@ -198,7 +206,7 @@ h1 {
     font-family: "Roboto", sans-serif;
     text-align: center;
     margin-bottom: 1rem;
-    /* Add space below the heading */
+ 
 }
 
 .rules-list {
@@ -339,9 +347,119 @@ li {
 
 /* spread circle animation ends */
 
+/* Game choice info */
+
+.game-choice{
+    position: absolute;
+    width: 100%;
+    min-height: 69vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    margin-top: 2rem;
+}
+
+.game-choice-wrapper{
+    width: 700px;
+    min-height: 10vh;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
 
-.hidden {
+
+/* Game choice info ends*/
+
+/* Win modal */
+.win-modal{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    text-align: center;
+    place-content: center;
+    top: 0;
     display: none;
 }
+
+.win-modal::before{
+    content: '';
+    position: absolute;
+    background: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+
+}
+
+.winner,
+.play-again{
+    z-index: 1;
+}
+
+.play-again{
+    background: #ffff;
+    letter-spacing: 2px;
+    color: #a00505;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-family: "Roboto", sans-serif;
+    font-size: 17px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.winner{
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 700;
+    text-transform: capitalize;
+    font-size: 24px;
+    line-height: 20px;
+}
+  
+
+ .choice.left {
+    position: absolute;
+    left: 368px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.choice.right {
+    position: absolute;
+    right: 368px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease, opacity 0.5s;
+    animation: fadeIn 0.5s ease;
+    pointer-events: none; 
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-60%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%);
+    }
+} 
+
+
 
