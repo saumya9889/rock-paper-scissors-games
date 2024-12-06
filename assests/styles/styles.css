@@ -134,7 +134,7 @@ h1 {
 }
 
 #line2 {
-    
+
     position: absolute;
     left: 44%;
     transform: translateX(-50%) rotate(60deg);
@@ -206,7 +206,7 @@ h1 {
     font-family: "Roboto", sans-serif;
     text-align: center;
     margin-bottom: 1rem;
- 
+
 }
 
 .rules-list {
@@ -264,6 +264,38 @@ h1 {
     cursor: pointer;
     font-size: 16px;
 }
+
+/* next button */
+.next-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -3rem;
+    margin-right: 1rem;
+
+}
+
+.next-btn-wrapper a {
+    background-color: rgba(140, 196, 97, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 10px 22px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 2px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* next button end */
+
 
 /* spread circle animation start */
 
@@ -349,7 +381,7 @@ li {
 
 /* Game choice info */
 
-.game-choice{
+.game-choice {
     position: absolute;
     width: 100%;
     min-height: 69vh;
@@ -360,7 +392,7 @@ li {
     margin-top: 2rem;
 }
 
-.game-choice-wrapper{
+.game-choice-wrapper {
     width: 700px;
     min-height: 10vh;
     font-size: 1.7rem;
@@ -376,12 +408,56 @@ li {
     align-items: center;
 }
 
+#userPicked {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+}
 
+#computerPicked {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    right: 0;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+}
+
+#userpicked, .choice.left {
+    display: block;
+}
+
+#computerpicked, .choice.right {
+    display: block;
+}
+
+#userPicked,
+#computerPicked {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    width: 100%;
+}
+
+#rock-cloned,
+#paper-cloned,
+#scissors-cloned {
+    display: none;
+}
 
 /* Game choice info ends*/
 
+
+
+
 /* Win modal */
-.win-modal{
+.win-modal {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -392,7 +468,7 @@ li {
     display: none;
 }
 
-.win-modal::before{
+.win-modal::before {
     content: '';
     position: absolute;
     background: #000;
@@ -403,11 +479,11 @@ li {
 }
 
 .winner,
-.play-again{
+.play-again {
     z-index: 1;
 }
 
-.play-again{
+.play-again {
     background: #ffff;
     letter-spacing: 2px;
     color: #a00505;
@@ -422,7 +498,7 @@ li {
     font-weight: 700;
 }
 
-.winner{
+.winner {
     margin-bottom: 1rem;
     color: white;
     font-weight: 700;
@@ -430,15 +506,16 @@ li {
     font-size: 24px;
     line-height: 20px;
 }
-  
 
- .choice.left {
+
+.choice.left {
     position: absolute;
     left: 368px;
     top: 50%;
     transform: translateY(-50%);
     transition: all 0.3s ease;
 }
+
 
 .choice.right {
     position: absolute;
@@ -447,7 +524,7 @@ li {
     transform: translateY(-50%);
     transition: all 0.3s ease, opacity 0.5s;
     animation: fadeIn 0.5s ease;
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 @keyframes fadeIn {
@@ -455,11 +532,130 @@ li {
         opacity: 0;
         transform: translateY(-60%);
     }
+
     to {
         opacity: 1;
         transform: translateY(-50%);
     }
-} 
+}
 
 
 
+
+
+
+/* Hurray Page Start */
+.winning {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.winning .winningTitle {
+    margin-bottom: 10px;
+    margin-top: 30px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.winning .info {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.trophy {
+    position: relative;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+    overflow: hidden;
+}
+
+.trophy .trophySVG {
+    position: absolute;
+    bottom: 0;
+}
+
+/* stars */
+.star1,
+.star2,
+.star3,
+.star4,
+.star5,
+.star6,
+.star7,
+.star8 {
+    position: absolute;
+}
+
+.star1 {
+    width: 20px;
+    top: 10%;
+    right: 10%;
+    animation: starTwinkle 0.4s ease-in-out alternate-reverse infinite;
+}
+
+.star2 {
+    width: 20px;
+    top: 25%;
+    left: 10%;
+    animation: starTwinkle 0.6s ease-in-out alternate-reverse infinite;
+}
+
+.star3 {
+    width: 50px;
+    top: 10%;
+    left: 20%;
+    animation: starTwinkle 0.8s ease-in-out alternate-reverse infinite;
+}
+
+.star4 {
+    width: 80px;
+    top: 10%;
+    right: 20%;
+    animation: starTwinkle 0.6s ease-in-out alternate-reverse infinite;
+}
+
+.star5 {
+    top: 40%;
+    left: 5%;
+    animation: starTwinkle 0.8s ease-in-out alternate-reverse infinite;
+}
+
+.star6 {
+    top: 50%;
+    right: 10%;
+    animation: starTwinkle 1s ease-in-out alternate-reverse infinite;
+}
+
+.star7 {
+    width: 30px;
+    top: 25%;
+    right: 55%;
+    animation: starTwinkle 0.4s ease-in-out alternate-reverse infinite;
+}
+
+.star8 {
+    width: 40px;
+    bottom: 10%;
+    left: 25%;
+    animation: starTwinkle 0.6s ease-in-out alternate-reverse infinite;
+}
+
+@keyframes starTwinkle {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Hurray Page End */

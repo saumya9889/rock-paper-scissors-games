@@ -8,16 +8,18 @@ const lines = document.querySelectorAll(".line");
 const userPicked = document.getElementById("userPicked");
 const computerPicked = document.getElementById("computerPicked");
 const handleReset = document.getElementById("reset");
+const rockCloned = document.getElementById('rock-cloned')
+const paperCloned = document.getElementById('paper-cloned')
+const scissorsCloned = document.getElementById('scissors-cloned')
 
 
 
 // logics for rock, paper, scissors button click
 let isChoiceMade = false;
-
 choice.forEach((element) => {
     element.addEventListener("click", () => {
-        if (isChoiceMade) return; // Exit if a choice has already been made
-        isChoiceMade = true; // Set the flag to true after the first click
+        if (isChoiceMade) return; 
+        isChoiceMade = true; 
 
         // Hide all choices and lines
         choice.forEach((item) => {
@@ -30,36 +32,42 @@ choice.forEach((element) => {
         // Show and move the clicked choice to the left (user's side)
         element.style.display = "block";
         element.classList.add("left");
-        
-        // Set user-picked image and show it
-        userPicked.style.opacity = "1";
-        userPicked.innerHTML = ""; // Clear any previous content
-        userPicked.appendChild(element.cloneNode(true)); // Clone the selected choice
 
         setTimeout(() => {
-            computerPicked.style.opacity = "1";
+            userPicked.style.opacity = "1";
+            userPicked.textContent = element.textContent;
+            userPicked.style.display = "block";
             setTimeout(() => {
+                computerPicked.style.opacity = "1";
+
                 // Randomly pick another choice for the computer
                 let randomIndex = Math.floor(Math.random() * choice.length);
                 const randomChoice = choice[randomIndex];
-
-                // Check if the random choice  is the same as the user's choice
-                if (randomChoice === element) {
-                    // If the same, clone the same element to the right (computer's side)
-                    computerPicked.innerHTML = "";
-                    computerPicked.appendChild(element.cloneNode(true)); // Clone the user's choice
+                //  console.log(randomChoice.id,'random')
+                //  console.log(element.id,'element')
+                // Check if the random choice's ID is the same as the user's choice ID
+                if (randomChoice.id === element.id) { // If the same, clone the user's choice to the right
+                    if(element.id === 'rock'){
+                        rockCloned.style.display = 'block'  
+                        rockCloned.classList.add("right")
+                    }else if(element.id === 'paper'){
+                        paperCloned.style.display = 'block'
+                        paperCloned.classList.add("right")
+                    }else if(element.id === 'scissors'){
+                        scissorsCloned.style.display = 'block'  
+                        scissorsCloned.classList.add("right")
+                    }
                 } else {
-                    // If not the same, clone the random choice to the right
-                    computerPicked.innerHTML = "";
-                    computerPicked.appendChild(randomChoice.cloneNode(true));
-                }
-
-                randomChoice.style.display = "block";
-                randomChoice.classList.add("right");
+                   
+                    randomChoice.style.display = "block";
+                    randomChoice.classList.add("right");
+                } 
             }, 1000);
         }, 500);
     });
 });
+
+
 
 handleReset.addEventListener('click', () => {
     isChoiceMade = false; // Reset the choice flag
@@ -69,7 +77,13 @@ handleReset.addEventListener('click', () => {
         item.style.display = "flex";
         item.classList.remove("left", "right"); // Remove position-specific classes
     });
-
+    // clone logic
+    rockCloned.style.display = 'none'
+    rockCloned.classList.remove("left", "right");
+    paperCloned.style.display = 'none'
+    paperCloned.classList.remove("left", "right");
+    scissorsCloned.style.display = 'none'
+    scissorsCloned.classList.remove("left", "right");
     // Reset all lines to their initial state
     lines.forEach((line) => {
         line.style.display = "block";
@@ -96,8 +110,4 @@ closeButton.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
+  
