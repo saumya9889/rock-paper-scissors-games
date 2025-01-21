@@ -8,7 +8,7 @@ const pickkUserHand = (hand) => {
   let contest = document.querySelector(".contest");
   contest.style.display = "flex";
 
-  document.getElementById("userPickImg").src = `./assets/images/${hand}.png`;
+  document.getElementById("userPickImg").src = `./assests/images/${hand}.png`;
 
   let cpHand = pickComputerHand();
   gameOn(hand, cpHand);
@@ -19,7 +19,7 @@ const pickComputerHand = () => {
 
   let cpHand = hands[Math.floor(Math.random() * 3)];
 
-  //   document.getElementById("compPickImg").src = `./assets/images/${cpHand}.png`;
+    document.getElementById("compPickImg").src = `./assests/images/${cpHand}.png`;
 
   // const compPickImgPath = require(`./assets/images/${cpHand}.png`);
   // document.getElementById("compPickImg").src = compPickImgPath;
