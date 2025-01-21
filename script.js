@@ -8,8 +8,8 @@ const pickkUserHand = (hand) => {
   let contest = document.querySelector(".contest");
   contest.style.display = "flex";
 
-  // document.getElementById("userPickImg").src = `./assests/images/${hand}.png`;
-  document.getElementById("userPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${hand}.png`;
+  document.getElementById("userPickImg").src = `./assests/images/${hand}.png`;
+  // document.getElementById("userPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${hand}.png`;
   // document.getElementById("userPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/refs/heads/main/assests/images/${hand}.png`;
 
 
@@ -24,7 +24,7 @@ const pickComputerHand = () => {
 
     // document.getElementById("compPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${cpHand}.png`;
 
-    // document.getElementById("compPickImg").src = `./assests/images/${cpHand}.png`;
+    document.getElementById("compPickImg").src = `./assests/images/${cpHand}.png`;
     // document.getElementById("compPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${cpHand}.png`;
 
   return cpHand;
