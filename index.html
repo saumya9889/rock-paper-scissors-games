@@ -1,124 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./assests/styles/styles.css" />
-  <title>Game</title>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assests/styles/styles.css">
+  <title>Stone-Paper-Scissor</title>
 </head>
-
 <body>
+  <div class="main">
+      <div class="scoreboard">
+          <div class="logo">
+              <p>ROCK</p>
+              <p>PAPER</p>
+              <p>SCISSOR</p>
+          </div>
+          <div class="score">
+              <div class="compScore">
+                  <p>Computer</p>
+                  <p>Score</p>
+                  <h1>0</h1>
+  
+              </div>
+              <div class="userScore">
+                  <p>Your</p>
+                  <p>Score</p>
+                  <h1>0</h1>
+  
+              </div>
+          </div>
+      </div>
+      <div class="rules">
+          <div class="rulecard">
+              <button class="closeBtn" onclick="toggleRules()">X</button>
+              <h1>Game Rules</h1>
+              <ul>
+                  <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                  <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+                  <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                  <li>If both players lay down the same hand, each player lays down another hand</li>
+              </ul>
 
-  <div class="game-container">
-    <div class="game-content">
-      <div class="title">
-        <h1>ROCK</h1>
-        <h1>PAPER</h1>
-        <h1>SCISSORS</h1>
+          </div>
+          <div class="next-btn-wrapper">
+            <a href="./hurray.html" class="next-btn " id="next">NEXT</a>
+            </div>
+      </div>
+      <button class="ruleBtn" onclick="toggleRules()">RULES</button>
+      <div class="hands">
+          <div class="hand paper">
+              <img src="./assests/images/Paper.png" alt="" onclick="pickkUserHand('Paper')">
+
+          </div>
+          <div class="hand scissors">
+              <img src="./assests/images/Scissors.png" alt="" onclick="pickkUserHand('Scissors')">
+
+          </div>
+          <div class="hand rock">
+             <img src="./assests/images/Rock.png" alt="" onclick="pickkUserHand('Rock')">
+
+          </div>
       </div>
 
-      <div class="scores">
-        <span class="score-section">
-          Computer <br /> Score <h2 id="computerChoice" class="point">0</h2></span>
-        <span class="score-section">
-          Player <br /> Score <h2 id="userChoice" class="point">0</h2></span>
+      <!-- <ul class="spread-circle-wrapper">
+        <li class="spread-circle"></li>
+        <li class="list1 animation"></li>
+        <li class="list2 animation"></li>
+        <li class="list3 animation"></li> 
+      </ul> -->
+
+      <div class="contest">
+          <div class="user-con">
+              <h1>You Picked</h1>
+              <div class="handImageContainer">
+                  <img id="userPickImg" src="./assests/images/Rock.png" alt="userPic-img">
+              </div>
+          </div>
+          <div class="result-con">
+              <p></p><h1 class="resultHeading">YOU LOST</h1><p></p>
+              <p></p><h1 class="resultSubheading">AGAINST PC</h1><p></p>
+              <button onclick="restartGame()">PLAY AGAIN</button>
+          </div>
+          <div class="comp-con">
+              <h1>PC Picked</h1>
+              <div class="handImageContainer">
+                  <img id="compPickImg" src="./assests/images/Paper.png" alt="computerPic-img">
+              </div>
+          </div>
+
       </div>
-    </div>
-
-
-    <div class="game-choice">
-      <div class="game-choice-wrapper" id="gameInfo">
-        <p id="userPicked">You Picked</p>
-        <p id="computerPicked">Computer Picked</p>
-      </div>
-    </div>
-
-    <div class="choices user-wrapper">
-      <div class="rock-paper">
-        <div class="choice" id="rock">
-          <img src="../assests/images/Group 2.png" class="bg-img" alt="Rock">
-          <img src="../assests/images/rock.png" class="overlay-img" alt="Rock">
-        </div>
-        <div class="choice" id="rock-cloned">
-          <img src="../assests/images/Group 2.png" class="bg-img" alt="Rock">
-          <img src="../assests/images/rock.png" class="overlay-img" alt="Rock">
-        </div>
-        <div class="choice paper" id="paper">
-          <img src="../assests/images/Group 3.png" class="bg-img" alt="paper">
-          <img src="../assests/images/paper.png" class="overlay-img" alt="Paper">
-        </div>
-        <div class="choice paper" id="paper-cloned">
-          <img src="../assests/images/Group 3.png" class="bg-img" alt="paper">
-          <img src="../assests/images/paper.png" class="overlay-img" alt="Paper">
-        </div>
-      </div>
-      <div class="choice" id="scissors">
-        <img src="../assests/images/Group 1.png" class="bg-img group-ssr " alt="Scissors">
-        <img src="../assests/images/scissors.png" class="overlay-img" alt="Scissors">
-      </div>
-      <div class="choice" id="scissors-cloned">
-        <img src="../assests/images/Group 1.png" class="bg-img group-ssr " alt="Scissors">
-        <img src="../assests/images/scissors.png" class="overlay-img" alt="Scissors">
-      </div>
-      <!-- <div class="choice another-image-wrapper">
-        <div class="choice" id="rock">
-          <img src="../assests/images/Group 2.png" class="bg-img" alt="Rock">
-          <img src="../assests/images/rock.png" class="overlay-img" alt="Rock">
-        </div>
-        <div class="choice paper" id="paper">
-          <img src="../assests/images/Group 3.png" class="bg-img" alt="paper">
-          <img src="../assests/images/paper.png" class="overlay-img" alt="Paper">
-        </div>
-        <div class="choice" id="scissors">
-          <img src="../assests/images/Group 1.png" class="bg-img group-ssr " alt="Scissors">
-          <img src="../assests/images/scissors.png" class="overlay-img" alt="Scissors">
-        </div>
-      </div> -->
-     
-      <img src="../assests/images/Line 1.png" alt="Line 1" class="line" id="line1">
-      <img src="../assests/images/Line 2.png" alt="Line 2" class="line" id="line2">
-      <img src="../assests/images/Line 3.png" alt="Line 3" class="line" id="line3">
-
-    </div>
-    <!-- <button id="reset">reset</button>
-    <ul class="spread-circle-wrapper">
-      <li class="spread-circle"></li>
-      <li class="list1 animation"></li>
-      <li class="list2 animation"></li>
-      <li class="list3 animation"></li> -->
-    </ul>
   </div>
-  <button id="reset">reset</button>
+  
 
-  <div class="win-modal">
-    <p class="winner">you win</p>
-    <button class="play-again" onclick="playagain()">play again</button>
-  </div>
-  </div>
+  <script src="./script.js"></script>
 
-  <div class="message">
-    <div class="rules" id="rulesContainer">
-      <h3>Game Rules</h3>
-      <ul class="rules-list">
-        <li>Rock beats scissors, scissors beat paper, and paper beats rock..</li>
-        <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”
-        </li>
-        <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
-        <li>If both players lay down the same hand, each player lays down another hand.</li>
-      </ul>
-      <button class="close-rules" id="closeButton">X</button>
-    </div>
-  </div>
-  <div class="rules-btn">
-    <button id="rulesButton" class="rules-btn">RULES</button>
-  </div>
-  <div class="next-btn-wrapper">
-  <a href="./hurray.html" class="next-btn " id="next">Next</a>
-  </div>
-
-  </div>
-  <script src="script.js"></script>
-</body>
-
-</html>
+</body></html>

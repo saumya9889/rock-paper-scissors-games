@@ -1,113 +1,88 @@
-const rulesButton = document.getElementById('rulesButton');
-const rulesContainer = document.getElementById('rulesContainer');
-const closeButton = document.getElementById('closeButton');
-const choice = document.querySelectorAll(".choice");
-const lines = document.querySelectorAll(".line");
-// const userChoice = document.getElementById("userChoice");
-// const computerChoice = document.getElementById("computerChoice");
-const userPicked = document.getElementById("userPicked");
-const computerPicked = document.getElementById("computerPicked");
-const handleReset = document.getElementById("reset");
-const rockCloned = document.getElementById('rock-cloned')
-const paperCloned = document.getElementById('paper-cloned')
-const scissorsCloned = document.getElementById('scissors-cloned')
+let userScore = 0;
+let computerScore = 0;
 
+const pickkUserHand = (hand) => {
+  let options = document.querySelector(".hands");
+  options.style.display = "none";
 
+  let contest = document.querySelector(".contest");
+  contest.style.display = "flex";
 
-// logics for rock, paper, scissors button click
-let isChoiceMade = false;
-choice.forEach((element) => {
-    element.addEventListener("click", () => {
-        if (isChoiceMade) return; 
-        isChoiceMade = true; 
+  document.getElementById("userPickImg").src = `./assets/images/${hand}.png`;
 
-        // Hide all choices and lines
-        choice.forEach((item) => {
-            item.style.display = "none";
-        });
-        lines.forEach((line) => {
-            line.style.display = "none";
-        });
+  let cpHand = pickComputerHand();
+  gameOn(hand, cpHand);
+};
 
-        // Show and move the clicked choice to the left (user's side)
-        element.style.display = "block";
-        element.classList.add("left");
+const pickComputerHand = () => {
+  let hands = ["Rock", "Paper", "Scissors"];
 
-        setTimeout(() => {
-            userPicked.style.opacity = "1";
-            userPicked.textContent = element.textContent;
-            userPicked.style.display = "block";
-            setTimeout(() => {
-                computerPicked.style.opacity = "1";
+  let cpHand = hands[Math.floor(Math.random() * 3)];
 
-                // Randomly pick another choice for the computer
-                let randomIndex = Math.floor(Math.random() * choice.length);
-                const randomChoice = choice[randomIndex];
-                //  console.log(randomChoice.id,'random')
-                //  console.log(element.id,'element')
-                // Check if the random choice's ID is the same as the user's choice ID
-                if (randomChoice.id === element.id) { // If the same, clone the user's choice to the right
-                    if(element.id === 'rock'){
-                        rockCloned.style.display = 'block'  
-                        rockCloned.classList.add("right")
-                    }else if(element.id === 'paper'){
-                        paperCloned.style.display = 'block'
-                        paperCloned.classList.add("right")
-                    }else if(element.id === 'scissors'){
-                        scissorsCloned.style.display = 'block'  
-                        scissorsCloned.classList.add("right")
-                    }
-                } else {
-                   
-                    randomChoice.style.display = "block";
-                    randomChoice.classList.add("right");
-                } 
-            }, 1000);
-        }, 500);
-    });
-});
+  //   document.getElementById("compPickImg").src = `./assets/images/${cpHand}.png`;
 
+  // const compPickImgPath = require(`./assets/images/${cpHand}.png`);
+  // document.getElementById("compPickImg").src = compPickImgPath;
 
+  return cpHand;
+};
 
-handleReset.addEventListener('click', () => {
-    isChoiceMade = false; // Reset the choice flag
+const gameOn = (userHand, cpHand) => {
+  if (userHand == "Paper" && cpHand == "Scissors") {
+    setDecision("YOU LOOSE!");
+  } else if (userHand == "Paper" && cpHand == "Rock") {
+    setDecision("YOU WIN!");
+  } else if (userHand == "Paper" && cpHand == "Paper") {
+    setDecision("ITS A TIE!");
+  } else if (userHand == "Rock" && cpHand == "Rock") {
+    setDecision("ITS A TIE!");
+  } else if (userHand == "Rock" && cpHand == "Paper") {
+    setDecision("YOU LOOSE!");
+  } else if (userHand == "Rock" && cpHand == "Scissors") {
+    setDecision("YOU WIN!");
+  } else if (userHand == "Scissors" && cpHand == "Paper") {
+    setDecision("YOU WIN!");
+  } else if (userHand == "Scissors" && cpHand == "Rock") {
+    setDecision("YOU LOOSE!");
+  } else if (userHand == "Scissors" && cpHand == "Scissors") {
+    setDecision("ITS A TIE");
+  }
+};
 
-    // Reset all choices to their initial state
-    choice.forEach((item) => {
-        item.style.display = "flex";
-        item.classList.remove("left", "right"); // Remove position-specific classes
-    });
-    // clone logic
-    rockCloned.style.display = 'none'
-    rockCloned.classList.remove("left", "right");
-    paperCloned.style.display = 'none'
-    paperCloned.classList.remove("left", "right");
-    scissorsCloned.style.display = 'none'
-    scissorsCloned.classList.remove("left", "right");
-    // Reset all lines to their initial state
-    lines.forEach((line) => {
-        line.style.display = "block";
-    });
+const setDecision = (decision) => {
+  console.log(decision);
 
-    // Reset user and computer picked visibility
-    userPicked.style.opacity = "0";
-    computerPicked.style.opacity = "0";
-});
+  document.querySelector(".resultHeading").innerText = decision;
+  if (decision == "YOU WIN!") {
+    document.querySelector(".userScore h1").innerText = ++userScore;
+  }
+  if (decision == "YOU LOOSE!") {
+    document.querySelector(".compScore h1").innerText = ++computerScore;
+  }
+
+  return decision;
+};
+
+const restartGame = () => {
+  let options = document.querySelector(".hands");
+  options.style.display = "flex";
+
+  let contest = document.querySelector(".contest");
+  contest.style.display = "none";
+};
+
+function toggleRules() {
+  const rulesContainer = document.querySelector(".rulecard");
+  if (
+    rulesContainer.style.display === "none" ||
+    rulesContainer.style.display === ""
+  ) {
+    rulesContainer.style.display = "block";
+  } else {
+    rulesContainer.style.display = "none";
+  }
+}
 
 
 
 
-// logics for rules button click close
-rulesButton.addEventListener('click', () => {
-    if (rulesContainer.style.display === 'none' || rulesContainer.style.display === '') {
-        rulesContainer.style.display = 'block';
-    } else {
-        rulesContainer.style.display = 'none';
-    }
-});
-closeButton.addEventListener('click', () => {
-    rulesContainer.style.display = 'none';
-});
-
-
-  
