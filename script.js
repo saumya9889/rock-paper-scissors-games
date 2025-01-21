@@ -24,8 +24,8 @@ const pickComputerHand = () => {
 
     // document.getElementById("compPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${cpHand}.png`;
 
-    document.getElementById("compPickImg").src = `./assests/images/${cpHand}.png`;
-    // document.getElementById("compPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${cpHand}.png`;
+    // document.getElementById("compPickImg").src = `./assests/images/${cpHand}.png`;
+    document.getElementById("compPickImg").src = `https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/main/assests/images/${cpHand}.png`;
 
   return cpHand;
 };
