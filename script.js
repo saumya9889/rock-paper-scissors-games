@@ -21,9 +21,6 @@ const pickComputerHand = () => {
 
     document.getElementById("compPickImg").src = `./assests/images/${cpHand}.png`;
 
-  // const compPickImgPath = require(`./assets/images/${cpHand}.png`);
-  // document.getElementById("compPickImg").src = compPickImgPath;
-
   return cpHand;
 };
 

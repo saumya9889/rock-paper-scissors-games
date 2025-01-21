@@ -1,94 +1,104 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assests/styles/styles.css">
-  <title>Stone-Paper-Scissor</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assests/styles/styles.css">
+    <title>Stone-Paper-Scissor</title>
 </head>
+
 <body>
-  <div class="main">
-      <div class="scoreboard">
-          <div class="logo">
-              <p>ROCK</p>
-              <p>PAPER</p>
-              <p>SCISSOR</p>
-          </div>
-          <div class="score">
-              <div class="compScore">
-                  <p>Computer</p>
-                  <p>Score</p>
-                  <h1>0</h1>
-  
-              </div>
-              <div class="userScore">
-                  <p>Your</p>
-                  <p>Score</p>
-                  <h1>0</h1>
-  
-              </div>
-          </div>
-      </div>
-      <div class="rules">
-          <div class="rulecard">
-              <button class="closeBtn" onclick="toggleRules()">X</button>
-              <h1>Game Rules</h1>
-              <ul>
-                  <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
-                  <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
-                  <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
-                  <li>If both players lay down the same hand, each player lays down another hand</li>
-              </ul>
-
-          </div>
-          <div class="next-btn-wrapper">
-            <a href="./hurray.html" class="next-btn " id="next">NEXT</a>
+    <div class="main">
+        <div class="scoreboard">
+            <div class="logo">
+                <p>ROCK</p>
+                <p>PAPER</p>
+                <p>SCISSOR</p>
             </div>
-      </div>
-      <button class="ruleBtn" onclick="toggleRules()">RULES</button>
-      <div class="hands">
-          <div class="hand paper">
-              <img src="./assests/images/Paper.png" alt="" onclick="pickkUserHand('Paper')">
+            <div class="score">
+                <div class="compScore">
+                    <p>Computer</p>
+                    <p>Score</p>
+                    <h1>0</h1>
 
-          </div>
-          <div class="hand scissors">
-              <img src="./assests/images/Scissors.png" alt="" onclick="pickkUserHand('Scissors')">
+                </div>
+                <div class="userScore">
+                    <p>Your</p>
+                    <p>Score</p>
+                    <h1>0</h1>
 
-          </div>
-          <div class="hand rock">
-             <img src="./assests/images/Rock.png" alt="" onclick="pickkUserHand('Rock')">
+                </div>
+            </div>
+        </div>
+        <div class="rules">
+            <div class="rulecard">
+                <button class="closeBtn" onclick="toggleRules()">X</button>
+                <h1>Game Rules</h1>
+                <ul>
+                    <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                    <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock,
+                        paper, scissors.”</li>
+                    <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                    <li>If both players lay down the same hand, each player lays down another hand</li>
+                </ul>
 
-          </div>
-      </div>
+            </div>
+            <div class="next-btn-wrapper">
+                <a href="./hurray.html" class="next-btn " id="next">NEXT</a>
+            </div>
+        </div>
+        <button class="ruleBtn" onclick="toggleRules()">RULES</button>
+        <div class="hands">
+            <div class="hand paper">
+                <img src="https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/refs/heads/main/assests/images/paper.png" alt="" onclick="pickkUserHand('Paper')">
 
-      <!-- <ul class="spread-circle-wrapper">
+            </div>
+            <div class="hand scissors">
+                <img src="https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/refs/heads/main/assests/images/scissors.png" alt="" onclick="pickkUserHand('Scissors')">
+
+            </div>
+            <div class="hand rock">
+                <img src="https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/refs/heads/main/assests/images/rock.png" alt="" onclick="pickkUserHand('Rock')">
+
+            </div>
+        </div>
+
+        <!-- <ul class="spread-circle-wrapper">
         <li class="spread-circle"></li>
         <li class="list1 animation"></li>
         <li class="list2 animation"></li>
         <li class="list3 animation"></li> 
       </ul> -->
 
-      <div class="contest">
-          <div class="user-con">
-              <h1>You Picked</h1>
-              <div class="handImageContainer">
-                  <img id="userPickImg" src="./assests/images/Rock.png" alt="userPic-img">
-              </div>
-          </div>
-          <div class="result-con">
-              <p></p><h1 class="resultHeading">YOU LOST</h1><p></p>
-              <p></p><h1 class="resultSubheading">AGAINST PC</h1><p></p>
-              <button onclick="restartGame()">PLAY AGAIN</button>
-          </div>
-          <div class="comp-con">
-              <h1>PC Picked</h1>
-              <div class="handImageContainer">
-                  <img id="compPickImg" src="./assests/images/Paper.png" alt="computerPic-img">
-              </div>
-          </div>
+        <div class="contest">
+            <div class="user-con">
+                <h1>You Picked</h1>
+                <div class="handImageContainer">
+                    <img id="userPickImg" src="https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/refs/heads/main/assests/images/rock.png" alt="userPic-img">
+                </div>
+            </div>
+            <div class="result-con">
+                <p></p>
+                <h1 class="resultHeading">YOU LOST</h1>
+                <p></p>
+                <p></p>
+                <h1 class="resultSubheading">AGAINST PC</h1>
+                <p></p>
+                <button onclick="restartGame()">PLAY AGAIN</button>
+            </div>
+            <div class="comp-con">
+                <h1>PC Picked</h1>
+                <div class="handImageContainer">
+                    <img id="compPickImg" src="https://raw.githubusercontent.com/saumya9889/rock-paper-scissors-games/refs/heads/main/assests/images/paper.png" alt="computerPic-img">
+                </div>
+            </div>
 
-      </div>
-  </div>
-  
+        </div>
+    </div>
 
-  <script src="./script.js"></script>
 
-</body></html>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
